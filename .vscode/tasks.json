@@ -1,48 +1,56 @@
 {
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "type": "cppbuild",
-            "label": "Build",
-            "command": "/usr/bin/g++",
-            "args": [
-                //"-g",
-                "-Wall",
-                "-std=c++17",
-                "${fileDirname}/${fileBasename}",
-                "-o",
-                "${fileDirname}/bin/${fileBasenameNoExtension}"
-            ],
-            "options": {
-                "cwd": "${fileDirname}"
-            },
-            "problemMatcher": [
-                "$gcc"
-            ],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-            "detail": "compiler: /usr/bin/g++",
-            "presentation": {
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cppbuild",
+			"label": "BuildMe",
+			"command": "/usr/bin/g++",
+			"args": [
+				"-fdiagnostics-color=always",
+				"-g",
+				"-Wall",
+				"-std=c++17",
+				"${file}",
+				"-o",
+				"${fileDirname}/bin/${fileBasenameNoExtension}"
+			],
+			"options": {
+				"cwd": "${fileDirname}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"detail": "compiler: /usr/bin/g++",
+			"presentation": {
                 "echo": true,
                 "reveal": "always",
                 "focus": false,
                 "panel": "shared",
-                "showReuseMessage": true,
+                "showReuseMessage": false,
                 "clear": true
             }
-        },
-        {
+		},
+		{
             "type": "process",
             "label": "Run C++ code",
-            //"command": "adwijhadw",
             "command": "${fileDirname}/bin/${fileBasenameNoExtension}",
             "dependsOn": [
-                "Build"
+                "BuildMe"
             ],
             "problemMatcher": [],
-            "group": "test"
+            "group": "test",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared",
+				"showReuseMessage": false,
+				"clear": false
+			}
         }
-    ]
+	]
 }

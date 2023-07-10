@@ -30,3 +30,15 @@
 *.exe
 *.out
 *.app
+
+
+
+# Keep bin folders but ignore contents
+/**/bin/*
+!/**/bin/.gitkeep
+
+
+# Mac File
+*DS_Store
+*_Store
+
