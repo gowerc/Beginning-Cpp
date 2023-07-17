@@ -21,8 +21,7 @@
 				"$gcc"
 			],
 			"group": {
-				"kind": "build",
-				"isDefault": true
+				"kind": "build"
 			},
 			"detail": "compiler: /usr/bin/g++",
 			"presentation": {
@@ -33,6 +32,15 @@
                 "showReuseMessage": false,
                 "clear": true
             }
+		},
+		{
+			"type": "shell",
+			"group": "build",
+			"command": "g++ -S ${file} -o ${fileBasenameNoExtension}.s",
+			"label": "Build-Assembly",
+			"options": {
+				"cwd": "${fileDirname}"
+			}
 		},
 		{
             "type": "process",

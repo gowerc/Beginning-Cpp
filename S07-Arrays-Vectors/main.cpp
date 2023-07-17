@@ -50,9 +50,19 @@ int main() {
     cout << "\n Reference checking ---\n";
     int myint{1};
     vector<int> refcheck(4, 1);
-    refcheck.push_back(myint);
+    refcheck.push_back(myint);    // pass by copy
     refcheck.at(4) += 1;
     myint += 100;
+    cout << refcheck.at(0)
+         << ", "
+         << refcheck.at(1)
+         << ", "
+         << refcheck.at(2)
+         << ", "
+         << refcheck.at(3)
+         << ", "
+         << refcheck.at(4)
+         << "\n";
     cout << refcheck.at(4); // Will return 2 because its done 1+1
     cout << "\n";
     cout << myint << "\n"; // Will return 101 because its done 1+100
