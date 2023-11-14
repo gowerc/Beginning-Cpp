@@ -1,6 +1,10 @@
 {
 	"version": "2.0.0",
 	"tasks": [
+		
+		
+		
+		
 		{
 			"type": "cppbuild",
 			"label": "BuildMe",
@@ -33,6 +37,11 @@
                 "clear": true
             }
 		},
+		
+		
+		
+		
+		
 		{
 			"type": "shell",
 			"group": "build",
@@ -42,6 +51,11 @@
 				"cwd": "${fileDirname}"
 			}
 		},
+		
+		
+		
+		
+		
 		{
             "type": "process",
             "label": "Run C++ code",
@@ -59,6 +73,48 @@
 				"showReuseMessage": false,
 				"clear": false
 			}
-        }
+        },
+		
+		
+		
+		
+		
+		{
+			"type": "shell",
+			"label": "buildC",
+			"group": "build",
+			"command": "gcc -std=c99 -Wall -o ${fileDirname}/bin/${fileBasenameNoExtension} ${file} ",
+			"options": {
+				"cwd": "${fileDirname}"
+			},
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared",
+				"showReuseMessage": false,
+				"clear": true
+			}
+		},
+		{
+			"type": "shell",
+			"label": "RunC",
+			"group": "test",
+			"command": "${fileDirname}/bin/${fileBasenameNoExtension}",
+			"options": {
+				"cwd": "${fileDirname}"
+			},
+			"dependsOn": [
+                "buildC"
+            ],
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared",
+				"showReuseMessage": false,
+				"clear": false
+			}
+		}
 	]
 }
