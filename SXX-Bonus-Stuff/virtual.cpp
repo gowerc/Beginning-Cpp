@@ -1,42 +1,28 @@
 
 #include <iostream>
-#include <vector>
+#include <string>
 
 
 struct base {
-    virtual void printme() {
-        std::cout << "Hi from Base" << std::endl;
-    };
+    virtual std::string get_name() {return "Base";};
     virtual ~base() {};
 };
 
 struct derived: public base {
-    virtual  void printme() override {
-        std::cout << "Hi from Derived" << std::endl;
-    };
-    virtual ~derived() {};
+    std::string get_name() override { return "Derived";};
+    ~derived() override {};
 };
 
-void call_printme(base* x) {
-    x->printme();
+void call_printme(base &x) {
+    std::cout << "Hi from " << x.get_name() << std::endl;
 }
 
 int main(){
-    call_printme(new base());
-    call_printme(new derived());
+    base x {base()};
+    derived y{derived()};
+    call_printme(x);
+    call_printme(y);
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
