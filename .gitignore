@@ -36,6 +36,8 @@
 # Keep bin folders but ignore contents
 /**/bin/*
 !/**/bin/.gitkeep
+/**/data/*
+!/**/data/.gitkeep
 
 
 # Mac File

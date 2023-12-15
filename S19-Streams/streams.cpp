@@ -48,11 +48,15 @@ int main() {
     //
     
     std::cout << 1234567890 << 1234567890 << 1234567890 << std::endl;
-    std::cout << std::setw(2)
+    std::cout << std::setw(10)
               << std::left
               << "hello"
-              << std::setw(9)
-              << "world";
+              << std::setw(10)
+              << "world"
+              << std::right
+              << std::setw(10)
+              << "!";
+              
 
 
     return 0;
