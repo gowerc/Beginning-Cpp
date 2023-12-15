@@ -8,7 +8,7 @@
 int main() {
     
     std::ofstream out_file;
-    out_file.open("S19-Streams/outfile.txt", std::ios::out);
+    out_file.open("S19-Streams/data/outfile.txt", std::ios::out);
     if (!out_file) {
         std::cerr << "Failed to open !" << std::endl;
         std::exit(1);
