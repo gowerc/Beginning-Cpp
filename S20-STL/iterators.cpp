@@ -17,7 +17,7 @@ int main() {
     
     vector<string> v {"a1", "b2", "c3", "d4", "e5", "f6", "g7"};
     vector<string>::iterator z {v.begin()};
-    
+        
     // Standard dereferencing
     cout << *z << endl;
     
@@ -40,7 +40,7 @@ int main() {
 
     // Sorting a vector using iterators and a lambda
     vector<accounts> acc { {500}, {200}, {300}, {400}, {350} };
-    std::sort(acc.begin(), acc.end(), [](accounts a, accounts b) {
+    std::sort(acc.begin(), acc.begin() + 3, [](accounts a, accounts b) {
         return a.balance < b.balance;
     });
     for (auto a : acc) {
