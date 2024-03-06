@@ -1,6 +1,7 @@
 
 #include <iostream>
 #include <vector>
+#include <numeric>
 
 // import just cout and endl from std namespace
 using std::cout, std::endl, std::vector, std::string;
@@ -46,4 +47,15 @@ int main() {
     for (auto a : acc) {
         cout << a.balance << endl;
     }
+
+
+    // Using std::accumulate with a lambda for a custom operation
+    int sum = std::accumulate(
+        acc.begin(),
+        acc.end(),
+        0,
+        [](int a, accounts b) { return a + b.balance; }
+    );
+
+    std::cout << "Sum: " << sum << std::endl;
 }
